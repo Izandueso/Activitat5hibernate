@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28/02/2020 18:06:38 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="damas.entity.Moviments" table="moviments" catalog="damas" optimistic-lock="version">
+        <composite-id name="id" class="damas.entity.MovimentsId">
+            <key-property name="numeroPartida" type="int">
+                <column name="numeroPartida" />
+            </key-property>
+            <key-property name="numeroMoviments" type="int">
+                <column name="numeroMoviments" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="partida" class="damas.entity.Partida" update="false" insert="false" fetch="select">
+            <column name="numeroPartida" not-null="true" />
+        </many-to-one>
+        <property name="tablerojuego" type="string">
+            <column name="tablerojuego" length="64" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
